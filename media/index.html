@@ -4,100 +4,138 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Katten en weidevogels in de media</title>
-<meta name="description" content="Overzicht van televisie, radio en artikelen over katten en weidevogels.">
+<meta name="description" content="Tijdlijn van televisie, radio, social media en artikelen over katten en weidevogels, plus congresbijdragen en workshops.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #eef3ea;
-  --ink: #16241a;
-  --muted: #536657;
-  --line: #c5d3c2;
-  --accent: #2e6b3f;
-  --hover: #e0ebdc;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #101a13;
-    --ink: #e6efe4;
-    --muted: #9bb0a0;
-    --line: #2b3d2f;
-    --accent: #7fc48f;
-    --hover: #18261c;
-  }
+  color-scheme: light;
+  --bg: #FAF7F0;
+  --ink: #2B2B2B;
+  --muted: #6B6358;
+  --line: #CFC8BA;
+  --hover: #F1ECE0;
+  --yellow: #FFC107;
+  --orange: #E8693A;
+  --blue: #2196F3;
+  --purple: #CDA4E0;
+  --datecol: 4.25rem;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Merriweather", Georgia, serif;
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
   font-size: 1rem;
   line-height: 1.65;
 }
-main { max-width: 40rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
-h1, h2 { line-height: 1.2; margin: 0; }
-h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); font-weight: 700; }
-.intro { color: var(--muted); margin: 1rem 0 2.5rem; font-size: 0.9375rem; }
-section { margin-bottom: 2.5rem; }
-h2 { font-size: 1.25rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); }
-ul { list-style: none; margin: 0; padding: 0; }
-li { border-bottom: 1px solid var(--line); }
-a.item {
-  display: block;
-  padding: 0.9rem 0.5rem;
-  margin: 0 -0.5rem;
-  color: inherit;
-  text-decoration: none;
-  border-radius: 6px;
+main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+h1 { font-size: clamp(1.6rem, 6.5vw, 2.25rem); line-height: 1.2; margin: 0; }
+h2 { font-size: 1.25rem; line-height: 1.3; margin: 3.5rem 0 0; }
+.intro { color: var(--muted); font-size: 0.9rem; margin: 1rem 0 0; }
+
+.legend { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin: 1.25rem 0 0; padding: 0; font-size: 0.8125rem; }
+.legend li { display: flex; align-items: center; gap: 0.5rem; }
+.legend li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--c); flex: none; }
+
+.timeline { list-style: none; margin: 1rem 0 0; padding: 0; }
+.timeline > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--datecol) 1.5rem 1fr;
 }
+.timeline > li::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--datecol) + 0.75rem - 1px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+.timeline > li:last-child::after { bottom: auto; height: 1.5rem; }
+
+.timeline .year { padding: 1.5rem 0 0.35rem; }
+.timeline .year h3 { grid-column: 1; margin: 0; font-size: 1rem; line-height: 1.4; }
+
+.timeline .row::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--datecol) + 0.75rem - 7px);
+  top: calc(0.75rem + 0.66rem - 7px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px var(--bg);
+  z-index: 1;
+}
+.timeline time {
+  grid-column: 1;
+  padding-top: calc(0.75rem + 0.66rem - 0.585rem);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.item { grid-column: 3; display: block; padding: 0.75rem 0.6rem; border-radius: 6px; color: inherit; text-decoration: none; }
 a.item:hover { background: var(--hover); }
-a.item:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
-.source { display: block; font-weight: 700; color: var(--accent); font-size: 0.875rem; }
-.title { display: block; margin: 0.15rem 0; }
-a.item:hover .title { text-decoration: underline; text-underline-offset: 3px; }
-time { display: block; color: var(--muted); font-size: 0.8125rem; }
+a.item:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; }
+.source { display: block; font-size: 0.875rem; font-weight: 700; line-height: 1.5; }
+.tag { font-weight: 400; color: var(--muted); }
+.title { display: block; font-size: 0.8125rem; line-height: 1.5; }
+a.item .title { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a.item:hover .title { text-decoration-color: var(--ink); }
+.nolink .title { color: var(--muted); }
+
+.c-yellow { --c: var(--yellow); }
+.c-orange { --c: var(--orange); }
+.c-blue { --c: var(--blue); }
+.c-purple { --c: var(--purple); }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 30rem) {
+  :root { --datecol: 3.5rem; }
+  main { padding-inline: 1rem; }
+}
 </style>
 </head>
 <body>
 <main>
   <h1>Katten en weidevogels in de media</h1>
-  <p class="intro">Een overzicht van televisie-, radio- en krantenberichten. Tik op een titel om het item te openen.</p>
+  <p class="intro">Een tijdlijn van televisie-, radio-, social media- en krantenberichten. Tik op een titel om het item te openen.</p>
 
-  <section>
-    <h2>YouTube, tv en social media</h2>
-    <ul>
-      <li><a class="item" href="https://nos.nl/nieuwsuur/video/2627812-verzet-tegen-plan-om-katten-af-te-schieten-die-vogels-vangen" target="_blank" rel="noopener noreferrer"><span class="source">Nieuwsuur</span><span class="title">Verzet tegen plan om katten af te schieten die vogels vangen</span><time datetime="2026-08-21">21 augustus 2026</time></a></li>
-      <li><a class="item" href="https://www.tiktok.com/@ntrwetenschap/video/7508248938655370529" target="_blank" rel="noopener noreferrer"><span class="source">NTR-Wetenschap</span><span class="title">Grutto is in gevaar, moet je je kat binnenhouden?</span><time datetime="2025-05-25">25 mei 2025</time></a></li>
-      <li><a class="item" href="https://npo.nl/start/serie/dit-is-de-kwestie/afleveringen/seizoen-3/dit-is-de-kwestie_47" target="_blank" rel="noopener noreferrer"><span class="source">EO Dit is de Kwestie</span><span class="title">Kattenoverlast</span><time datetime="2024-10-22">22 oktober 2024</time></a></li>
-      <li><a class="item" href="https://www.oogtv.nl/2024/05/gemeente-roept-stadjers-op-houd-je-katten-tot-half-juli-s-nachts-binnen-voor-de-vogeltjes/" target="_blank" rel="noopener noreferrer"><span class="source">OOG TV Groningen</span><span class="title">Gemeente roept Stadjers op: houd je katten tot half juli ’s nachts binnen</span><time datetime="2024-05-17">17 mei 2024</time></a></li>
-      <li><a class="item" href="https://jeugdjournaal.nl/artikel/2501605-wilde-katten-worden-gevangen-op-schiermonnikoog-ze-horen-hier-niet" target="_blank" rel="noopener noreferrer"><span class="source">Jeugdjournaal</span><span class="title">Wilde katten worden gevangen op Schiermonnikoog: ‘Ze horen hier niet’</span><time datetime="2023-12-14">14 december 2023</time></a></li>
-      <li><a class="item" href="https://www.youtube.com/watch?v=Z5vK39gOJ0c" target="_blank" rel="noopener noreferrer"><span class="source">NTR-Wetenschap</span><span class="title">Zo vang je een verwilderde kat</span><time datetime="2023-03-16">16 maart 2023</time></a></li>
-    </ul>
-  </section>
+  <ul class="legend" aria-label="Legenda">
+    <li class="c-yellow">TV / Radio</li>
+    <li class="c-orange">Social media</li>
+    <li class="c-blue">Krant</li>
+    <li class="c-purple">Online artikel</li>
+  </ul>
 
-  <section>
-    <h2>Radio</h2>
-    <ul>
-      <li><a class="item" href="https://www.nporadio1.nl/fragmenten/dit-is-de-dag/98c26de4-c884-4afc-ac06-24f8bbf866fe/2024-03-21-kunnen-we-katten-s-nachts-beter-binnenhouden-in-het-broedseizoen" target="_blank" rel="noopener noreferrer"><span class="source">NPO Radio 1 / EO Dit is de Dag</span><span class="title">Kunnen we katten ’s nachts beter binnenhouden in het broedseizoen?</span><time datetime="2024-03-21">21 maart 2024</time></a></li>
-    </ul>
-  </section>
+  <ol class="timeline">
+    <li class="year"><h3>2023</h3></li>
+    <li class="row c-orange"><time datetime="2023-03-16">16 mrt</time><a class="item" href="https://www.youtube.com/watch?v=Z5vK39gOJ0c" target="_blank" rel="noopener noreferrer"><span class="sr">Social media. </span><span class="source">NTR Wetenschap</span><span class="title">Zo vang je een verwilderde kat</span></a></li>
+    <li class="row c-yellow"><time datetime="2023-12-14">14 dec</time><a class="item" href="https://jeugdjournaal.nl/artikel/2501605-wilde-katten-worden-gevangen-op-schiermonnikoog-ze-horen-hier-niet" target="_blank" rel="noopener noreferrer"><span class="sr">TV. </span><span class="source">Jeugdjournaal</span><span class="title">Wilde katten worden gevangen op Schiermonnikoog: ‘Ze horen hier niet’</span></a></li>
 
-  <section>
-    <h2>Kranten en artikelen</h2>
-    <ul>
-      <li><a class="item" href="https://www.nrc.nl/nieuws/2026/05/06/een-kat-in-het-weiland-is-een-wandelende-stressfactor-voor-de-grutto-a4926597" target="_blank" rel="noopener noreferrer"><span class="source">NRC</span><span class="title">Een kat in het weiland is een wandelende stressfactor voor de grutto</span><time datetime="2026-05-06">6 mei 2026</time></a></li>
-      <li><a class="item" href="https://www.nemokennislink.nl/publicaties/de-kat-van-spinnende-lieveling-tot-natuurprobleem/" target="_blank" rel="noopener noreferrer"><span class="source">Nemo Kennislink</span><span class="title">De kat: van spinnende lieveling tot natuurprobleem</span><time datetime="2025-10-03">3 oktober 2025</time></a></li>
-      <li><a class="item" href="https://ukrant.nl/magazine/these-chicks-are-cat-food-how-can-we-save-our-godwits/?lang=en" target="_blank" rel="noopener noreferrer"><span class="source">UKrant</span><span class="title" lang="en">How to save our godwits. These chicks are cat food</span><time datetime="2025-09-24">24 september 2025</time></a></li>
-      <li><a class="item" href="https://www.ad.nl/alphen-aan-den-rijn/verwilderde-katten-richten-slachtpartij-aan-onder-weidevogels-het-zijn-echt-sluipmoordenaars~a84399be/" target="_blank" rel="noopener noreferrer"><span class="source">AD Alphen aan den Rijn</span><span class="title">Verwilderde katten richten slachtpartij aan onder weidevogels</span><time datetime="2025-06-02">2 juni 2025</time></a></li>
-      <li><a class="item" href="https://www.grootsneek.nl/nieuws/algemeen/109782/campagne-kuikens-in-het-land-poes-in-de-mand-weer-van-start" target="_blank" rel="noopener noreferrer"><span class="source">Kuikens in het land, Poes in de mand</span><span class="title">Campagne weer van start</span><time datetime="2025-04-16">16 april 2025</time></a></li>
-      <li><a class="item" href="https://dit.eo.nl/artikel/waarom-zijn-er-niet-meer-regels-voor-katten-poes-van-de-buren-eet-mijn-vogeltjes-op" target="_blank" rel="noopener noreferrer"><span class="source">EO Dit is de Kwestie</span><span class="title">Waarom zijn er niet meer regels voor katten?</span><time datetime="2024-10-22">22 oktober 2024</time></a></li>
-      <li><a class="item" href="https://eenvandaag.avrotros.nl/artikelen/hoe-ver-moet-je-gaan-om-weidevogels-te-beschermen-tegen-de-huiskat-onze-mindset-moet-veranderen-149097" target="_blank" rel="noopener noreferrer"><span class="source">EenVandaag</span><span class="title">Hoe ver moet je gaan om weidevogels te beschermen tegen de huiskat?</span><time datetime="2024-03-04">4 maart 2024</time></a></li>
-      <li><a class="item" href="https://www.omropfryslan.nl/nl/nieuws/16321974/onderzoeker-overheid-moet-meer-doen-tegen-katten-op-roverspad" target="_blank" rel="noopener noreferrer"><span class="source">Omrop Fryslân</span><span class="title">Onderzoeker: ‘Overheid moet meer doen tegen katten op roverspad’</span><time datetime="2024-03-01">1 maart 2024</time></a></li>
-      <li><a class="item" href="#" target="_blank" rel="noopener noreferrer"><span class="source">BioNieuws</span><span class="title">Peiling: Bending the curve – Hoe dan?</span><time datetime="2024-02-02">2 februari 2024</time></a></li>
-    </ul>
-  </section>
-</main>
-</body>
-</html>
+    <li class="year"><h3>2024</h3></li>
+    <li class="row c-purple"><time datetime="2024-02-02">2 feb</time><div class="item nolink"><span class="sr">Online artikel. </span><span class="source">BioNieuws</span><span class="title">Peiling: Bending the curve – Hoe dan?</span></div></li>
+    <li class="row c-purple"><time datetime="2024-03-01">1 mrt</time><a class="item" href="https://www.omropfryslan.nl/nl/nieuws/16321974/onderzoeker-overheid-moet-meer-doen-tegen-katten-op-roverspad" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">Omrop Fryslân</span><span class="title">Onderzoeker: ‘Overheid moet meer doen tegen katten op roverspad’</span></a></li>
+    <li class="row c-purple"><time datetime="2024-03-04">4 mrt</time><a class="item" href="https://eenvandaag.avrotros.nl/artikelen/hoe-ver-moet-je-gaan-om-weidevogels-te-beschermen-tegen-de-huiskat-onze-mindset-moet-veranderen-149097" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">EenVandaag</span><span class="title">Hoe ver moet je gaan om weidevogels te beschermen tegen de huiskat?</span></a></li>
+    <li class="row c-yellow"><time datetime="2024-03-21">21 mrt</time><a class="item" href="https://www.nporadio1.nl/fragmenten/dit-is-de-dag/98c26de4-c884-4afc-ac06-24f8bbf866fe/2024-03-21-kunnen-we-katten-s-nachts-beter-binnenhouden-in-het-broedseizoen" target="_blank" rel="noopener noreferrer"><span class="sr">Radio. </span><span class="source">NPO Radio 1 / EO Dit is de Dag</span><span class="title">Kunnen we katten ’s nachts beter binnenhouden in het broedseizoen?</span></a></li>
+    <li class="row c-yellow"><time datetime="2024-05-17">17 mei</time><a class="item" href="https://www.oogtv.nl/2024/05/gemeente-roept-stadjers-op-houd-je-katten-tot-half-juli-s-nachts-binnen-voor-de-vogeltjes/" target="_blank" rel="noopener noreferrer"><span class="sr">TV. </span><span class="source">OOG TV Groningen</span><span class="title">Gemeente roept Stadjers op: houd je katten tot half juli ’s nachts binnen</span></a></li>
+    <li class="row c-yellow"><time datetime="2024-10-22">22 okt</time><a class="item" href="https://npo.nl/start/serie/dit-is-de-kwestie/afleveringen/seizoen-3/dit-is-de-kwestie_47" target="_blank" rel="noopener noreferrer"><span class="sr">TV. </span><span class="source">EO Dit is de Kwestie</span><span class="title">Kattenoverlast</span></a></li>
+    <li class="row c-purple"><time datetime="2024-10-22">22 okt</time><a class="item" href="https://dit.eo.nl/artikel/waarom-zijn-er-niet-meer-regels-voor-katten-poes-van-de-buren-eet-mijn-vogeltjes-op" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">EO Dit is de Kwestie</span><span class="title">Waarom zijn er niet meer regels voor katten?</span></a></li>
+
+    <li class="year"><h3>2025</h3></li>
+    <li class="row c-purple"><time datetime="2025-04-16">16 apr</time><a class="item" href="https://www.grootsneek.nl/nieuws/algemeen/109782/campagne-kuikens-in-het-land-poes-in-de-mand-weer-van-start" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">Kuikens in het land, Poes in de mand</span><span class="title">Campagne weer van start</span></a></li>
+    <li class="row c-orange"><time datetime="2025-05-25">25 mei</time><a class="item" href="https://www.tiktok.com/@ntrwetenschap/video/7508248938655370529" target="_blank" rel="noopener noreferrer"><span class="sr">Social media. </span><span class="source">NTR Wetenschap</span><span class="title">Grutto is in gevaar, moet je je kat binnenhouden?</span></a></li>
+    <li class="row c-blue"><time datetime="2025-06-02">2 jun</time><a class="item" href="https://www.ad.nl/alphen-aan-den-rijn/verwilderde-katten-richten-slachtpartij-aan-onder-weidevogels-het-zijn-echt-sluipmoordenaars~a84399be/" target="_blank" rel="noopener noreferrer"><span class="sr">Krant. </span><span class="source">AD Alphen aan den Rijn</span><span class="title">Verwilderde katten richten slachtpartij aan onder weidevogels</span></a></li>
+    <li class="row c-purple"><time datetime="2025-09-24">24 sep</time><a class="item" href="https://ukrant.nl/magazine/these-chicks-are-cat-food-how-can-we-save-our-godwits/?lang=en" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">UKrant <span class="tag">(in English)</span></span><span class="title" lang="en">How to save our godwits. These chicks are cat food</span></a></li>
+    <li class="row c-purple"><time datetime="2025-10-03">3 okt</time><a class="item" href="https://www.nemokennislink.nl/publicaties/de-kat-van-spinnende-lieveling-tot-natuurprobleem/" target="_blank" rel="noopener noreferrer"><span class="sr">Online artikel. </span><span class="source">Nemo Kennislink</span><span class="title">De kat: van spinnende lieveling tot natuurprobleem</span></a></li>
+
+    <li class="year"><h3>2026</h3></li>
+    <li class="row c-blue"><time datetime="2026-05-06">6 mei</time><a class="item" href="https://www.nrc.nl/nieuws/2026/05/06/een-kat-in-het-weiland-is-een-wandelende-stressfactor-voor-de-grutto-a4926597" target="_blank" rel="noopener noreferrer"><span class="sr">Krant. </span><span class="source">NRC</span><span class="title">Een kat in het weiland is een wandelende stressfactor voor de grutto</span></a></li>
+    <li class="row c-yellow"><time datetime="2026-08-21">21 aug</time><a class="item" href="https://nos.nl/nieuwsuur/video/2627812-verzet-tegen-plan-om-katten-af-te-schieten-die-vogels-vangen" target="_blank" rel="noopener noreferrer"><span class="sr">TV. </span><span class="source">Nieuwsuur</span><span class="title">Verzet tegen plan om katten af te schieten die vogels vangen</span></a></li>
+  </ol>
